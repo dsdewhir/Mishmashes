@@ -6,7 +6,7 @@
     	body{
     		margin:0 0px;
     		padding:0 0px;
-    		background: url("/assets/blue200x200.png") top center repeat;
+    		background: url("/images/blue200x200.png") top center repeat;
     		
     	}
       #divWrapper{
@@ -15,7 +15,7 @@
       	position:relative;
       	width:1000px;
       	height:900px;
-      	background: url("/assets/divBackground.png") top center no-repeat;
+      	background: url("/images/divBackground.png") top center no-repeat;
       }
       #divCalloutWrapper{
       	position:absolute;
@@ -34,41 +34,77 @@
       .divFilesCopyTag{
       	font:16px Arial, Helvetica, sans-serif;
       	line-height:18px;
-      	padding-top:15px;
+      	padding-top:5px;
       }
       .divFilesCopyTag h3{
       	font:16px Arial, Helvetica, sans-serif;
       	line-height:18px;
       	font-weight:bold;
       }
-      #div312{
-      	color:#527252;
-      	position:absolute;
-      	top:500px;
-      	left:560px;
-      	width:350px;
+      #divCTAHeadline{
+      	width:920px;
+      	padding-top:20px;
       }
-      #div312 a{
-      	color:#527252;
+      #divCTAHeadline h3{
+      	font:18px Arial, Helvetica, sans-serif;
+      	line-height:18px;
+      	font-weight:bold;
       }
-      #divTweet{
-      	color:#527252;
-      	position:absolute;
-      	top:525px;
-      	left:560px;
-      	width:400px;
+      #divBottomWrapper{
+      	width:920px;
+      }
+      #divFormWrapper{
+      	font:16px Arial, Helvetica, sans-serif;
+      	width:563px;
+      	border-right:gray 1px solid;
+      	float:left;
+      }
+      #divSubmitButton{
+      	background: url("/images/buttonBG.png") top left no-repeat;
+      	width:230px;
+      	height:54px;
+      	text-align:center;
+      	margin-top:20px;
+      	padding-top:18px;
+      	z-index: 10;
+      }
+      #divSubmitButton a{
+      	width:230px;
+      	height:54px;
+      }
+      #divSocialWrapper{
+      	width:300px;
+      	float:left;
+      	margin-left:20px;
       }
     </style>
-    <meta name="description" content="Get Me My Files is a new, better, more secure way to access all your files, from any location." />
+    <meta name="description" content="GetMeMyFiles is a new, better, more secure way to access all your files, from any location." />
   </head>
   <body>
   	<div id="divWrapper">
   		<div id="divCalloutWrapper">
   			<div class="divFilesHeadline"><strong>Your files are your life.</strong></div>
-  			<div class="divFilesCopy">Your grant proposal. Next year's marketing budget. The irreplacable pictures of your children. Your life is digital, written in files large and small -- and a virus, a lightning strike, a failed hard drive, or any of countless other mishaps can lose it all forever. But your life is also digital -- and you need access to it from anywhere.</div>
-			<div class="divFilesHeadline" style="padding-top:30px;"><strong>Would you put something precious on a cloud?</strong></div>
-			<div class="divFilesCopy">Of course not. A cloud is insubstantial -- and it's a long drop to the ground. The same is true of cloud computing: Servers crash. Servers are hacked. Cloud storage companies go out of business. Ask yourself one more question: Is that really the kind of environment to which you're going to entrust your entire digital life?</div>
+  			<div class="divFilesCopy">Your grant proposal. Next year's marketing budget. The irreplacable pictures of your children. Your life is digital, written in files large and small -- and a virus, a lightning strike, a failed hard drive, hackers, or any of countless other mishaps can expose or lose it all forever. And yet, you don't just need to protect your files -- you need to access them from any of your devices, anywhere.</div>
+			<div class="divFilesHeadline" style="padding-top:20px;"><strong>Would you put something precious on a cloud?</strong></div>
+			<div class="divFilesCopy">Of course not. A cloud is insubstantial -- and it's a long drop to the ground. The same is true of cloud computing: Servers crash. Servers are hacked. Cloud storage companies go out of business. Ask yourself one more question: Is that really the kind of environment to which you're going to entrust your entire digital life? With GetMeMyFiles, your data will never be lost or exposed. Period.</div>
 			<div class="divFilesCopyTag"><h3>Be safe and secure. Your own files on your own computer -- anywhere.</h3></div>
+			<div id="divCTAHeadline"><h3>Give us your email and we'll let you know when you can be one of the first to securely share your files.</h3></div>
+			<div id="divBottomWrapper">
+				<div id="divFormWrapper">
+					<form id="frmSignup">
+						<div>Email: <input type="text" name="email" id="email" width="200" /></div>
+						<div style="padding-top:20px;">I'm interested in using GetMeMyFiles on (Check all that apply):</div>
+						<div style="padding-top:5px;">
+							Windows <input type="checkbox" name="chkWindows" id="chkWindows" value="Windows" />&nbsp;&nbsp;&nbsp;Mac <input type="checkbox" name="chkMac" id="chkMac" value="Mac" />&nbsp;&nbsp;&nbsp;iPad <input type="checkbox" name="chkIPad" id="chkIPad" value="iPad" />&nbsp;&nbsp;&nbsp;iPhone <input type="checkbox" name="chkIPhone" id="chkIPhone" value="iPhone" />&nbsp;&nbsp;&nbsp;Android device <input type="checkbox" name="chkAndroid" id="chkAndroid" value="Android" />
+						</div>
+						<div id="divSubmitButton"><a href="#" title="GetMeMyFiles News Sign-up">Tell me when it's ready!</a></div>
+					</form>
+				</div>
+				<div id="divSocialWrapper">
+					<div>Facebook me!</div>
+					<div>Tweet me!</div>
+				</div>
+			</div>
   		</div>
     </div>
   </body>

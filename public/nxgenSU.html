@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Get Me My Files</title>
+    <style type="text/css" media="screen">
+    	body{
+    		margin:0 0px;
+    		padding:0 0px;
+    		background: url("/images/blue200x200.png") top center repeat;
+    		
+    	}
+      #divWrapper{
+      	margin:0 auto;
+      	padding:0px;
+      	position:relative;
+      	width:1000px;
+      	height:570px;
+      	background: url("/images/divBackgroundRHForm.png") top center no-repeat;
+      }
+      #divCalloutWrapper{
+      	position:absolute;
+      	top: 50px;
+      	left: 50px;
+      	width:930px;
+      }
+      #divBottomSlug{
+      	position:absolute;
+      	top: 480px;
+      	left: 50px;
+      	width:930px;
+      	color: #93278f;
+      	font:42px Arial, Helvetica, sans-serif;
+      }
+      #divColLeft{
+      	width:530px;
+      	padding:100px 20px 0px 0px;
+      	float:left;
+      }
+      #divColRight{
+      	width:350px;
+      	margin-left:20px;
+      	float:left;
+      }
+      #divColRightThankYou{
+      	display:none;
+      	width:350px;
+      	margin-left:20px;
+      	float:left;
+      }
+      .divFilesHeadline{
+      	color: #93278f;
+      	font:18px Arial, Helvetica, sans-serif;
+      }
+      .divFilesCopy{
+      	font:14px Arial, Helvetica, sans-serif;
+      	line-height:18px;
+      }
+      .divFilesCopyTag{
+      	font:16px Arial, Helvetica, sans-serif;
+      	line-height:18px;
+      	padding-top:5px;
+      }
+      .divFilesCopyTag h3{
+      	font:16px Arial, Helvetica, sans-serif;
+      	line-height:18px;
+      	font-weight:bold;
+      }
+      #divCTAHeadline{
+      	width:920px;
+      	padding-top:20px;
+      }
+      #divCTAHeadline h3{
+      	font:24px Arial, Helvetica, sans-serif;
+      	line-height:28px;
+      	font-weight:bold;
+      }
+      #divBottomWrapper{
+      	width:920px;
+      }
+      #divFormWrapper{
+      	font:16px Arial, Helvetica, sans-serif;
+      	width:350px;
+      	float:left;
+      }
+      #divSubmitButton{
+      	background: url("/images/buttonBG.png") top center no-repeat;
+      	width:350px;
+      	height:54px;
+      	text-align:center;
+      	margin-top:20px;
+      	padding-top:18px;
+      	z-index: 10;
+      }
+      #divSubmitButton a{
+      	width:230px;
+      	height:54px;
+      }
+      #divSocialWrapper{
+      	width:300px;
+      	float:left;
+      	margin-left:20px;
+      }
+      .divCheckboxRow{
+      	float:left;width:140px;line-height:25px;
+      }
+    </style>
+    <meta name="description" content="GetMeMyFiles is a new, better, more secure way to access all your files, from any location." />
+    <script type="text/javascript" language="JavaScript">
+    	function sendreq(){
+			var xmlHttp = getXMLHTTP();
+			var ss = document.getElementById("txtURL").value;
+			//alert(ss);
+			xmlHttp.open('get', '/page/processpage?u=' + ss, true);
+			xmlHttp.send(null);
+			xmlHttp.onreadystatechange = function() {
+				if(xmlHttp.readyState === 4) {
+					if(xmlHttp.status === 200) {
+						//alert(xmlHttp.responseText);
+						//alert("Success!");
+						document.getElementById("divFormWrapper").style.display="block";
+						document.getElementById("divImgThumbs").innerHTML=xmlHttp.responseText;
+						var hdnTitleTag = document.getElementById("hdnTitle").value;
+						document.getElementById("item_item_name").value = hdnTitleTag;
+						document.getElementById("item_url").value = ss;
+						$(function() {
+							var galleries = $('.ad-gallery').adGallery();
+						});
+						//document.getElementById('divInitial').visible = false;
+						//document.getElementById('divImgThumbs').innerHtml = xmlHttp.responseText;
+					} else {
+						alert('Error: ' + xmlHttp.status + xmlHttp.responseText);
+					}
+				} else { //still loading
+				}
+			};
+		}
+		function getXMLHTTP() {
+			var xmlHttp = null;
+			//if XMLHttpRequest is available then creating and returning it
+			if( typeof (XMLHttpRequest) != undefined) {
+				xmlHttp = new XMLHttpRequest;
+				return xmlHttp;
+				//if window.ActiveXObject is available than the user is using IE...so we have to create the newest version XMLHttp object
+			} else if(window.ActiveXObject) {
+				var ieXMLHttpVersions = ['MSXML2.XMLHttp.5.0', 'MSXML2.XMLHttp.4.0', 'MSXML2.XMLHttp.3.0', 'MSXML2.XMLHttp', 'Microsoft.XMLHttp'];
+				//In this array we are starting from the first element (newest version) and trying to create it. If there is an
+				//exception thrown we are handling it (and doing nothing ^^)
+				for(var i = 0; i < ieXMLHttpVersions.length; i++) {
+					try {
+						xmlHttp = new ActiveXObject(ieXMLHttpVersions[i]);
+						return xmlHttp;
+					} catch (e) {
+					}
+				}
+			}
+		}
+    </script>
+  </head>
+  <body>
+  	<div id="divWrapper">
+  		<div id="divCalloutWrapper">
+  			<div id="divColLeft">
+  				<div class="divFilesHeadline"><strong>Your files are your life.</strong></div>
+  				<div class="divFilesCopy">Your grant proposal. Next year's marketing budget. The irreplacable pictures of your children. Your life is digital, written across files large and small -- and a virus, a lightning strike, a failed hard drive, hackers, or any of countless other mishaps can expose or lose it all forever. And yet, you don't just need to protect your files -- you need to access them from any of your devices, anywhere.</div>
+				<div class="divFilesHeadline" style="padding-top:20px;"><strong>Would you put something precious on a cloud?</strong></div>
+				<div class="divFilesCopy">Of course not. A cloud is insubstantial -- and it's a long drop to the ground. The same is true of cloud computing: Servers crash. Servers are hacked. Cloud storage companies go out of business. Ask yourself one more question: Is that really the kind of environment to which you're going to entrust your entire digital life? With GetMeMyFiles, your data will never be lost or exposed. Period.</div>
+				<div class="divFilesCopyTag"><h3>Be safe and secure. Your own files, your own devices, anywhere.</h3></div>
+			</div>
+			<div id="divColRight">
+				<div id="divCTAHeadline"><h3>Be one of the first<br />to securely share your files.</h3></div>
+				<div id="divFormWrapper">
+					<form id="frmSignup">
+						<div>Email: <input type="text" name="email" id="email" width="200" /></div>
+						<div style="padding-top:20px;">GetMeMyFiles on (Check all that apply):</div>
+						<div style="padding-top:5px;width:300px;height:50px;">
+							<div class="divCheckboxRow"><input type="checkbox" name="chkWindows" id="chkWindows" value="Windows" />Windows<br /><input type="checkbox" name="chkMac" id="chkMac" value="Mac" />Mac</div>
+							<div class="divCheckboxRow"><input type="checkbox" name="chkIOS" id="chkIOS" value="iOS" />iOS<br /><input type="checkbox" name="chkAndroid" id="chkAndroid" value="Android" />Android device</div>
+						</div>
+						<div id="divSubmitButton"><a href="#" onclick="sendereq();return false;" title="GetMeMyFiles News Sign-up">Tell me when it's ready!</a></div>
+					</form>
+				</div>
+			</div>
+			<div id="divColRightThankYou">
+				<div id="divCTAHeadline"><h3>Thank you!</h3></div>
+				<div id="divFormWrapper">
+					We will let you know as soon as GetMeMyFiles is launched! In the meantime, why not follow us on Facebook and Twitter to keep updated on our status?
+				</div>
+			</div>
+  		</div>
+  		<div id="divBottomSlug">Every file in its place. A place for every file.</div>
+    </div>
+  </body>
+</html>
