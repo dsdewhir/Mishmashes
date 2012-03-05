@@ -82,6 +82,12 @@
       	width:350px;
       	float:left;
       }
+      #divThankYouWrapper{
+      	font:18px Arial, Helvetica, sans-serif;
+      	line-height:27px;
+      	width:350px;
+      	float:left;
+      }
       #divSubmitButton{
       	background: url("/images/buttonBG.png") top center no-repeat;
       	width:350px;
@@ -104,35 +110,58 @@
       	float:left;width:140px;line-height:25px;
       }
     </style>
-    <meta name="description" content="GetMeMyFiles is a new, better, more secure way to access all your files, from any location." />
+    <meta name="description" content="GetMeMyFiles is a new, better, more secure way to access all your files, from any location. The GetMeMyFiles encryption algorithm means you can access your files and your digital life from anywhere." />
     <script type="text/javascript" language="JavaScript">
     	function sendreq(){
 			var xmlHttp = getXMLHTTP();
-			var ss = document.getElementById("txtURL").value;
-			//alert(ss);
-			xmlHttp.open('get', '/page/processpage?u=' + ss, true);
+			var em = document.getElementById("txtEmail").value;
+			var strDevices = getDevices();
+			if(!validEmail(em))
+			{
+				alert("Please provide a valid email address to be notified of GetMeMyFile news");
+				return false;
+			}
+			
+			xmlHttp.open('get', 'nxgen.html?e=' + em + '&d=' + strDevices, true);
 			xmlHttp.send(null);
 			xmlHttp.onreadystatechange = function() {
 				if(xmlHttp.readyState === 4) {
 					if(xmlHttp.status === 200) {
 						//alert(xmlHttp.responseText);
 						//alert("Success!");
-						document.getElementById("divFormWrapper").style.display="block";
-						document.getElementById("divImgThumbs").innerHTML=xmlHttp.responseText;
-						var hdnTitleTag = document.getElementById("hdnTitle").value;
-						document.getElementById("item_item_name").value = hdnTitleTag;
-						document.getElementById("item_url").value = ss;
-						$(function() {
-							var galleries = $('.ad-gallery').adGallery();
-						});
-						//document.getElementById('divInitial').visible = false;
-						//document.getElementById('divImgThumbs').innerHtml = xmlHttp.responseText;
+						document.getElementById("divColRight").style.display = "none";
+						document.getElementById("divColRightThankYou").style.display = "block";
 					} else {
 						alert('Error: ' + xmlHttp.status + xmlHttp.responseText);
 					}
 				} else { //still loading
 				}
 			};
+		}
+		function getDevices()
+		{
+			var frmSignup = document.getElementById("frmSignup");
+			var aryLength = frmSignup.chkDevice.length; 
+			var strDevices = "";
+			for (i = 0;i<aryLength;i++)
+			{
+				if(frmSignup.chkDevice[i].checked && strDevices=="")
+				{
+					strDevices = strDevices + frmSignup.chkDevice[i].value;
+				}
+				else if (frmSignup.chkDevice[i].checked)
+				{
+					strDevices = strDevices + "," + frmSignup.chkDevice[i].value;
+				}
+			}
+			return strDevices;
+		}
+		function validEmail(email) {
+			var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+			if (!filter.test(email)) {
+				return false;
+			}
+			else {return true;}
 		}
 		function getXMLHTTP() {
 			var xmlHttp = null;
@@ -170,19 +199,19 @@
 				<div id="divCTAHeadline"><h3>Be one of the first<br />to securely share your files.</h3></div>
 				<div id="divFormWrapper">
 					<form id="frmSignup">
-						<div>Email: <input type="text" name="email" id="email" width="200" /></div>
+						<div>Email: <input type="text" name="txtEmail" id="txtEmail" width="200" /></div>
 						<div style="padding-top:20px;">GetMeMyFiles on (Check all that apply):</div>
 						<div style="padding-top:5px;width:300px;height:50px;">
-							<div class="divCheckboxRow"><input type="checkbox" name="chkWindows" id="chkWindows" value="Windows" />Windows<br /><input type="checkbox" name="chkMac" id="chkMac" value="Mac" />Mac</div>
-							<div class="divCheckboxRow"><input type="checkbox" name="chkIOS" id="chkIOS" value="iOS" />iOS<br /><input type="checkbox" name="chkAndroid" id="chkAndroid" value="Android" />Android device</div>
+							<div class="divCheckboxRow"><input type="checkbox" name="chkDevice" id="chkWindows" value="Windows" />Windows<br /><input type="checkbox" name="chkDevice" id="chkMac" value="Mac" />Mac</div>
+							<div class="divCheckboxRow"><input type="checkbox" name="chkDevice" id="chkIOS" value="iOS" />iOS<br /><input type="checkbox" name="chkDevice" id="chkAndroid" value="Android" />Android device</div>
 						</div>
-						<div id="divSubmitButton"><a href="#" onclick="sendereq();return false;" title="GetMeMyFiles News Sign-up">Tell me when it's ready!</a></div>
+						<div id="divSubmitButton"><a href="#" onclick="sendreq();return false;" title="GetMeMyFiles News Sign-up">Tell me when it's ready!</a></div>
 					</form>
 				</div>
 			</div>
 			<div id="divColRightThankYou">
 				<div id="divCTAHeadline"><h3>Thank you!</h3></div>
-				<div id="divFormWrapper">
+				<div id="divThankYouWrapper">
 					We will let you know as soon as GetMeMyFiles is launched! In the meantime, why not follow us on Facebook and Twitter to keep updated on our status?
 				</div>
 			</div>
