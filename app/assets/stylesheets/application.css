@@ -5,3 +5,34 @@
  *= require_self
  *= require_tree . 
 */
+body{
+    		margin:0 0px;
+    		padding:0 0px;
+    		background: #9fdd9f url("/assets/backgroundBG.png") top center repeat-x;
+    		
+    	}
+      #divWrapper{
+      	margin:0 auto;
+      	padding:0px;
+      	position:relative;
+      	width:1000px;
+      	height:728px;
+      	background: url("/assets/mishmashesNoField.png") top center no-repeat;
+      }
+      #div312{
+      	color:#527252;
+      	position:absolute;
+      	top:500px;
+      	left:560px;
+      	width:350px;
+      }
+      #div312 a{
+      	color:#527252;
+      }
+      #divTweet{
+      	color:#527252;
+      	position:absolute;
+      	top:525px;
+      	left:560px;
+      	width:400px;
+      }
