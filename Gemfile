@@ -5,7 +5,7 @@ gem 'rails', '3.1.0'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+#gem 'sqlite3'
 #gem 'pg'
 
 
@@ -27,4 +27,10 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
-
+group :development, :test do
+  gem 'sqlite3'
+end
+group :production do
+  # gems specifically for Heroku go here
+  gem 'pg'
+end
