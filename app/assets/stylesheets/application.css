@@ -26,9 +26,11 @@ body{
       	left:480px;
       	width:520px;
       	height:230px;
+      	font-size:18px;
+      	line-height:27px;
       }
       #divBubbleText{
-      	margin:65px 35px 40px 70px;
+      	margin:65px 35px 40px 75px;
       }
       #div312{
       	color:#527252;
