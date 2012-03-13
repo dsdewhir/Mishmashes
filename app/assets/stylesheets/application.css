@@ -5,11 +5,10 @@
  *= require_self
  *= require_tree . 
 */
-body{
+		body{
     		margin:0 0px;
     		padding:0 0px;
-    		background: #5d985d url("/assets/backgroundBG.png") top center repeat-x;
-    		
+    		background: #5d985d url("/assets/backgroundBG.png") top center repeat-x !important;
     	}
       #divWrapper{
       	margin:0 auto;
